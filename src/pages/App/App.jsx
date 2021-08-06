@@ -16,6 +16,7 @@ import * as userAPI from '../../utilities/users-api'
 function App() {
 	const [user, setUser] = useState(getUser());
 	const [patchNotes, setPatchNotes] = useState([]);
+	const [profile, setProfile] = useState({});
 	// const [comments, setComments] = useState([]);
 	const history = useHistory();
 
@@ -70,15 +71,17 @@ function App() {
         setPatchNotes(patchNotes.filter(patch=> patch._id !== id));
     }
 
-	async function handleUpdateComment(patch, comment){
+	async function handleUpdatePatchComment(patch, comment){
 		const updatedComment = await patchAPI.updateComment(patch, comment);
 		// const newCommentsArray = patchNotes.comments.map(c => c._id === updatedComment._id ? updatedComment : c );
 		setPatchNotes(updatedComment)
+		getPatches();
 	}
 
 	async function handleDeletePatchComment(patchId, commentId){
 		await patchAPI.deleteOne(patchId, commentId);
 		const newPatchArray = patchNotes.filter(singleComment => singleComment._id !== commentId);
+		getPatches();
 		setPatchNotes((prevState) => {
 			return newPatchArray
 		})
@@ -98,7 +101,7 @@ function App() {
 							<NewPatchNotesPage setPatchNotes={setPatchNotes} patchNotes={patchNotes} />
 						</Route>
 						<Route exact path='/profile'>
-							<UserProfilePage user={user} setUser={setUser} />
+							<UserProfilePage user={user} setUser={setUser} profile={profile} setProfile={setProfile} />
 						</Route>
 						<Route exact path='/details'>
 							<PatchDetailsPage user={user} setPatchNotes={setPatchNotes} patchNotes={patchNotes} handleAddPatchComments={handleAddPatchComments} handleDeletePatchComment={handleDeletePatchComment} />
@@ -107,7 +110,7 @@ function App() {
 							<EditPatchPage handleUpdatePatch={handleUpdatePatch} />
 						</Route>
 						<Route exact path='/editcomment'>
-							<EditCommentPage handleUpdateComment={handleUpdateComment} />
+							<EditCommentPage handleUpdatePatchComment={handleUpdatePatchComment} />
 						</Route>
 						<Redirect to='/patchnotes' />
 					</Switch>

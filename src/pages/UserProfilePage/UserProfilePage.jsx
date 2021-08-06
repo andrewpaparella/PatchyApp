@@ -8,7 +8,6 @@ import UserProfileHeader from '../../components/UserProfileHeader/UserProfileHea
 
 
 export default function UserProfilePage(props){
-    const [profile, setProfile] = useState({});
     const { state: {comment}} = useLocation();
     // const [profileComments, setProfileComments] = useState([])
     const history = useHistory();
@@ -16,35 +15,35 @@ export default function UserProfilePage(props){
     useEffect(() => {
 		async function getProfile(){
 			const oneUser = await usersAPI.getOne(comment.profileId);
-			setProfile(oneUser)
+			props.setProfile(oneUser)
 		} 
 		getProfile();
 	},[]);
 
     async function handleDeleteComment(profileId, commentId){
 		await usersAPI.deleteOne(profileId, commentId);
-		setProfile(profile.comments.filter(singleComment => singleComment._id !== commentId));
+		props.setProfile(props.profile.comments.filter(singleComment => singleComment._id !== commentId));
 	}
 
     async function handleAddComments(newCommentData){
-        newCommentData.profileId = profile._id
+        newCommentData.profileId = props.profile._id
         const newProfile = await usersAPI.addComment(newCommentData);
         console.log(newProfile)
-        setProfile([newProfile])
+        props.setProfile([newProfile])
     }
 
 
-    // useEffect(() => {
-	// 	history.push('/patchnotes')
-	// }, [profile.comments, history])
+    useEffect(() => {
+		history.push('/patchnotes')
+	}, [props.profile, history])
 
     return (
         <>
-        <UserProfileHeader profile={profile} />
-        {profile.comments && profile.comments.map(comment => (
-            <UserComments profile={profile} comment={comment} key={comment._id} handleDeleteComment={handleDeleteComment} />
+        <UserProfileHeader profile={props.profile} />
+        {props.profile.comments && props.profile.comments.map(comment => (
+            <UserComments profile={props.profile} comment={comment} key={comment._id} handleDeleteComment={handleDeleteComment} />
         ))}
-        <UserCommentsForm handleAddComments={handleAddComments} profile={profile} setComments={props.setComments} setProfile={setProfile} user={props.user} comments={props.comments} />
+        <UserCommentsForm handleAddComments={handleAddComments} profile={props.profile} setComments={props.setComments} setProfile={props.setProfile} user={props.user} comments={props.comments} />
         </>
     )
 }

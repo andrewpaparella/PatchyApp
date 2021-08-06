@@ -11,7 +11,7 @@ export default function EditCommentPage(props){
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.handleUpdateComment(patch, formData);
+        props.handleUpdatePatchComment(patch, formData);
     }
 
     const handleChange = e => {
