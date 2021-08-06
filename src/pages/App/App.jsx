@@ -73,7 +73,6 @@ function App() {
 
 	async function handleUpdatePatchComment(patch, comment){
 		const updatedComment = await patchAPI.updateComment(patch, comment);
-		// const newCommentsArray = patchNotes.comments.map(c => c._id === updatedComment._id ? updatedComment : c );
 		setPatchNotes(updatedComment)
 		getPatches();
 	}
