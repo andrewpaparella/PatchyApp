@@ -5,6 +5,27 @@ const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6; // 6 is a reasonable value
 
+const commentSchema = new Schema (
+    {
+        Date: {
+            type: Date,
+            default: Date.now()
+        },
+        body: {
+            type: String,
+            required: true
+        },
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        },
+        name: String,
+    },
+    {
+        timestamps: true
+    }
+)
+
 const userSchema = new Schema(
 	{
 		name: {
@@ -24,6 +45,7 @@ const userSchema = new Schema(
 			minLength: 3,
 			required: true,
 		},
+		comments: [commentSchema]
 	},
 	{
 		timestamps: true,
