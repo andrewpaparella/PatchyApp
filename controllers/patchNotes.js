@@ -1,5 +1,4 @@
 const Patchnote = require('../models/PatchNote')
-const User = require('../models/user')
 
 
 module.exports = {

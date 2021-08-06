@@ -3,7 +3,6 @@ import * as patchAPI from '../../utilities/patchnotes-api';
 
 
 export default function PatchCommentsForm({user, patch, setPatchNotes, handleAddPatchComments}) {
-    const [comments, setComments] = useState([])
     const [formData, setFormData] = useState({
         name: user.name,
         body: '',
@@ -19,17 +18,6 @@ export default function PatchCommentsForm({user, patch, setPatchNotes, handleAdd
 			setPatchNotes(patch)
 		} getPatch();
     }, [])
-
-    // async function handleAddComments(newCommentData){
-    //     console.log('1',newCommentData)
-    //     console.log('2',patch.comments)
-    //     const newPatch = await patchAPI.addComment(newCommentData);
-    //     console.log('3',newPatch)
-    //     // const newCommentsArray = [...patch.comments, newComment]
-    //     console.log('4',newPatch.comments)
-    //     setPatchNotes(newPatch)
-    // }
-    
 
     const handleSubmit = (e) => {
         e.preventDefault();

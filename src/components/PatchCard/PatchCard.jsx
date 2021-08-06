@@ -5,16 +5,6 @@ import PatchComments from '../PatchComments/PatchComments';
 import * as patchAPI from '../../utilities/patchnotes-api';
 
 function PatchCard({ patch, user, setPatchNotes, patchNotes, handleAddPatchComments, handleDeletePatchComment}){
-	// useEffect(() => {
-	// 	history.push('/details')
-	// }, [comments, history])
-
-	// <Link
-    //         to={{
-    //             pathname: '/details',
-    //             state: { patch },
-    //         }}
-    //         />
     const patchId = patch._id
 	useEffect(() => {
 		async function getPatch(){

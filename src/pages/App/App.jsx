@@ -17,7 +17,6 @@ function App() {
 	const [user, setUser] = useState(getUser());
 	const [patchNotes, setPatchNotes] = useState([]);
 	const [profile, setProfile] = useState({});
-	// const [comments, setComments] = useState([]);
 	const history = useHistory();
 
 	useEffect(() => {
@@ -35,22 +34,6 @@ function App() {
 		} 
 		getPatches();
 	},[]);
-
-	// useEffect(() => {
-	// 	async function getUsers(){
-	// 		const users = await userAPI.getAll();
-	// 		setUser(users)
-	// 	} 
-	// 	getUsers();
-	// },[]);
-
-	// useEffect(() => {
-	// 	async function getPatches(){
-	// 		const patches = await patchAPI.getAll();
-	// 		setPatchNotes(patches)
-	// 	} 
-	// 	getPatches();
-	// },[comments]);
 
 	async function handleAddPatchComments(newCommentData){
 		const newPatch = await patchAPI.addComment(newCommentData);

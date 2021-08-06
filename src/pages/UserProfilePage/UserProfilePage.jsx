@@ -9,7 +9,6 @@ import UserProfileHeader from '../../components/UserProfileHeader/UserProfileHea
 
 export default function UserProfilePage(props){
     const { state: {comment}} = useLocation();
-    // const [profileComments, setProfileComments] = useState([])
     const history = useHistory();
 
     useEffect(() => {
