@@ -16,13 +16,17 @@ import * as userAPI from '../../utilities/users-api'
 function App() {
 	const [user, setUser] = useState(getUser());
 	const [patchNotes, setPatchNotes] = useState([]);
-	const [comments, setComments] = useState([]);
+	// const [comments, setComments] = useState([]);
 	const history = useHistory();
 
 	useEffect(() => {
 		history.push('/patchnotes')
-	}, [patchNotes, comments, history])
+	}, [patchNotes, history])
 
+	async function getPatches(){
+		const patches = await patchAPI.getAll();
+		setPatchNotes(patches)
+	}
 	useEffect(() => {
 		async function getPatches(){
 			const patches = await patchAPI.getAll();
@@ -47,6 +51,14 @@ function App() {
 	// 	getPatches();
 	// },[comments]);
 
+	async function handleAddPatchComments(newCommentData){
+		const newPatch = await patchAPI.addComment(newCommentData);
+		setPatchNotes((prevState) => {
+			return [newPatch]
+		})
+    }
+    
+
 	async function handleUpdatePatch(patch){
 		const updatedPatch = await patchAPI.update(patch);
 		const newPatchArray = patchNotes.map( p => p._id === updatedPatch._id ? updatedPatch : p );
@@ -63,13 +75,15 @@ function App() {
 		// const newCommentsArray = patchNotes.comments.map(c => c._id === updatedComment._id ? updatedComment : c );
 		setPatchNotes(updatedComment)
 	}
-	// useEffect(() => {
-	// 	async function getComments(){
-	// 		const comments = await patchAPI.getAll();
-	// 		setComments(comments)
-	// 	} 
-	// 	getComments();
-	//   },[]);  
+
+	async function handleDeletePatchComment(patchId, commentId){
+		await patchAPI.deleteOne(patchId, commentId);
+		const newPatchArray = patchNotes.filter(singleComment => singleComment._id !== commentId);
+		setPatchNotes((prevState) => {
+			return newPatchArray
+		})
+		getPatches();
+	}
 
 	return (
 		<main className='App'>
@@ -87,7 +101,7 @@ function App() {
 							<UserProfilePage user={user} setUser={setUser} />
 						</Route>
 						<Route exact path='/details'>
-							<PatchDetailsPage user={user} setComments={setComments} comments={comments} setPatchNotes={setPatchNotes} patchNotes={patchNotes} />
+							<PatchDetailsPage user={user} setPatchNotes={setPatchNotes} patchNotes={patchNotes} handleAddPatchComments={handleAddPatchComments} handleDeletePatchComment={handleDeletePatchComment} />
 						</Route>
 						<Route exact path='/edit'>
 							<EditPatchPage handleUpdatePatch={handleUpdatePatch} />

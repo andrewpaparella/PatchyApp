@@ -29,6 +29,7 @@ export default function UserProfilePage(props){
     async function handleAddComments(newCommentData){
         newCommentData.profileId = profile._id
         const newProfile = await usersAPI.addComment(newCommentData);
+        console.log(newProfile)
         setProfile([newProfile])
     }
 

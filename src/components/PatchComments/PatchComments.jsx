@@ -1,15 +1,16 @@
 import * as patchAPI from '../../utilities/patchnotes-api';
 import {Link} from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function PatchComments({comment, patchNotes, setPatchNotes, patch, profileId}){
+export default function PatchComments({comment, patchNotes, setPatchNotes, patch, profileId, handleDeletePatchComment}){
 
-    async function handleDeleteComment(patchId, commentId){
-		await patchAPI.deleteOne(patchId, commentId);
-		setPatchNotes(patchNotes.filter(singleComment => singleComment._id !== commentId));
-	}
-
-    
+    const patchId = patch._id
+	useEffect(() => {
+		async function getPatch(){
+			const patch = await patchAPI.getOne(patchId);
+			setPatchNotes(patch)
+		} getPatch();
+    }, [])
 
     return (
     <div>
@@ -29,7 +30,7 @@ export default function PatchComments({comment, patchNotes, setPatchNotes, patch
             >
                 Edit
             </Link>
-        <button className='btn btn-xs btn-danger margin-left-10' onClick={() => handleDeleteComment(patch._id, comment._id)}>
+        <button className='btn btn-xs btn-danger margin-left-10' onClick={() => handleDeletePatchComment(patch._id, comment._id)}>
                     DELETE
                 </button>
         <hr />

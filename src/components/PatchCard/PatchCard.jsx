@@ -1,11 +1,10 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import PatchCommentsForm from '../PatchCommentsForm/PatchCommentsForm';
 import PatchComments from '../PatchComments/PatchComments';
 import * as patchAPI from '../../utilities/patchnotes-api';
 
-function PatchCard({ patch, user, setComments, comments, setPatchNotes, patchNotes }){
-
+function PatchCard({ patch, user, setPatchNotes, patchNotes, handleAddPatchComments, handleDeletePatchComment}){
 	// useEffect(() => {
 	// 	history.push('/details')
 	// }, [comments, history])
@@ -16,10 +15,10 @@ function PatchCard({ patch, user, setComments, comments, setPatchNotes, patchNot
     //             state: { patch },
     //         }}
     //         />
-             
+    const patchId = patch._id
 	useEffect(() => {
 		async function getPatch(){
-			const patch = await patchAPI.getOne(patch._id);
+			const patch = await patchAPI.getOne(patchId);
 			setPatchNotes(patch)
 		} getPatch();
     }, [])
@@ -37,9 +36,9 @@ function PatchCard({ patch, user, setComments, comments, setPatchNotes, patchNot
 					<br />
 					<span>Comments</span>
 					{patch.comments.map(comment => (
-                <PatchComments comment={comment} key={comment._id} setPatchNotes={setPatchNotes} patchNotes={patchNotes} patch={patch} user={user} />
+                <PatchComments comment={comment} key={comment._id} setPatchNotes={setPatchNotes} patchNotes={patchNotes} patch={patch} user={user} handleDeletePatchComment={handleDeletePatchComment} />
 					))}
-                <PatchCommentsForm user={user} setComments={setComments} comments={comments} patch={patch} />
+                <PatchCommentsForm user={user} patch={patch} setPatchNotes={setPatchNotes} handleAddPatchComments={handleAddPatchComments} />
 			</div>
 			<div className='panel-footer'>
 				<Link to='/patchnotes'>RETURN TO LIST</Link>

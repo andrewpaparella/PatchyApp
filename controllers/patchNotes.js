@@ -41,7 +41,7 @@ async function deleteComment(req, res){
     const patch = await Patchnote.findById(req.params.id)
     const comment = await patch.comments.remove(req.params.id2)
     patch.save(function(err) {
-        res.status(200)
+        res.status(200).json(patch)
     })
 }
 
