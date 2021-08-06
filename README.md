@@ -11,11 +11,13 @@ Trello board: https://trello.com/b/vKsYfSzt/patchy-app
 
 Heroku: http://patchyy-app.herokuapp.com/
 
-## ICEBOX FEATURES:
-Consume an API to automatically post patchnotes instead of a user posting it.
-Better functionality that renders components correctly.
-Consume an API for user profiles that will display their ranks.
-Add multiple games that will attract more people.
+## ICEBOX FEATURES:<ul>
+<li>Consume an API to automatically post patchnotes instead of a user posting it.  </li>
+<li>Better functionality that renders components correctly.</li>
+<li>Consume an API for user profiles that will display their ranks.</li>
+<li>Add multiple games that will attract more people.</li>
+ <li>Better Styling</li>
+  </ul>
 
 <img width="1084" alt="Screen Shot 2021-08-06 at 8 30 46 AM" src="https://user-images.githubusercontent.com/84999855/128534933-c792e702-3c0f-4106-b62c-5e747c21d750.png">
 <img width="1084" alt="Screen Shot 2021-08-06 at 8 30 56 AM" src="https://user-images.githubusercontent.com/84999855/128534946-c95b8cde-d290-4ecf-8b18-35c83b59ecef.png">
