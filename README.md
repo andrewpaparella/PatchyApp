@@ -3,7 +3,7 @@
 ### Patchy is an open forum where people get to talk about the most recent patch notes. Users can create forum posts and anyone can write comments about the forum posts.  Users all have a profile that will display more information about themselves.  Other users can write comments about different users they see on the website.
 
 ### Technologies used:
-HTML, CSS, JAVASCRIPT, REACT, EXPRESS, MONGODB/MONGOOSE, and NODE
+REACT, EXPRESS, MONGODB/MONGOOSE, and NODE
 
 ## LINKS:
 
