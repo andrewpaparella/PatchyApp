@@ -1,72 +1,22 @@
-# Getting Started with Create React App
+## Patchy 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Patchy is an open forum where people get to talk about the most recent patch notes. Users can create forum posts and anyone can write comments about the forum posts.  Users all have a profile that will display more information about themselves.  Other users can write comments about different users they see on the website.
 
-## Available Scripts
+### Technologies used:
+HTML, CSS, JAVASCRIPT, REACT, EXPRESS, MONGODB/MONGOOSE, and NODE
 
-In the project directory, you can run:
+## LINKS:
 
-### `npm start`
+Trello board: https://trello.com/b/vKsYfSzt/patchy-app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Heroku: http://patchyy-app.herokuapp.com/
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ICEBOX FEATURES:
+Consume an API to automatically post patchnotes instead of a user posting it.
+Better functionality that renders components correctly.
+Consume an API for user profiles that will display their ranks.
+Add multiple games that will attract more people.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Project3-PatchyApp
-# Project3-PatchyApp
+<img width="1084" alt="Screen Shot 2021-08-06 at 8 30 46 AM" src="https://user-images.githubusercontent.com/84999855/128534933-c792e702-3c0f-4106-b62c-5e747c21d750.png">
+<img width="1084" alt="Screen Shot 2021-08-06 at 8 30 56 AM" src="https://user-images.githubusercontent.com/84999855/128534946-c95b8cde-d290-4ecf-8b18-35c83b59ecef.png">
+<img width="1084" alt="Screen Shot 2021-08-06 at 8 31 04 AM" src="https://user-images.githubusercontent.com/84999855/128534949-293e5274-3ce2-4f05-a7e9-b7c3e414a0b1.png">
